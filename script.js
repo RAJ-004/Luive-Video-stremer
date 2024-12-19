@@ -1,7 +1,7 @@
 // Function to open video page with the selected video
 function openVideo(videoSrc) {
   localStorage.setItem("currentVideo", videoSrc);
-  window.location.href = "video.html";
+  window.location.href = "./video.html";
 }
 
 // On the video.html page, load the selected video
@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if (video && currentVideo) {
     video.src = currentVideo; // Load directly from localStorage
     video.play(); // Autoplay the video
+  }  else if (video) {
+    video.src = ""; // Optional: Set to a default or empty source
+    console.warn("No video selected or found.");
   }
 });
 
