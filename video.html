@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Player</title>
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+  <header>
+    <h1>Video Player</h1>
+  </header>
+
+  <!-- Video Player -->
+  <div class="video-player">
+    <video id="mainVideo" controls autoplay>
+      <source src="" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Recommendations -->
+  <div class="recommendations">
+    <div class="video-card" onclick="changeVideo('video1.mp4')">
+      <img src="Thumbnail/video1.jpg" alt="Thumbnail 1" class="thumbnail">
+      <h4>Learn Node</h4>
+    </div>
+    <div class="video-card" onclick="changeVideo('video2.mp4')">
+      <img src="Thumbnail/video2.jpg" alt="Thumbnail 2" class="thumbnail">
+      <h4>Learn MongoDB</h4>
+    </div>
+    <div class="video-card" onclick="changeVideo('video3.mp4')">
+      <img src="Thumbnail/video3.jpg" alt="Thumbnail 3" class="thumbnail">
+      <h4>React Mastery</h4>
+    </div>
+  </div>
+  
+
+  <!-- Comment Section -->
+  <div class="comments">
+    <h3>Live Comments</h3>
+    <ul id="commentList"></ul>
+    <input type="text" id="commentInput" placeholder="Add a comment">
+    <button onclick="addComment()">Send</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
