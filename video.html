@@ -7,43 +7,89 @@
   <link rel="stylesheet" href="style1.css">
 </head>
 <body>
+  <!-- Header -->
   <header>
     <h1>Video Player</h1>
   </header>
 
-  <!-- Video Player -->
-  <div class="video-player">
+  <!-- Video Player Section -->
+  <section class="video-player">
     <video id="mainVideo" controls autoplay>
       <source src="" type="video/mp4">
-      Your browser does not support the video tag.
+      Your browser does not support the video tag. Please update your browser.
     </video>
-  </div>
+  </section>
 
-  <!-- Recommendations -->
-  <div class="recommendations">
-    <div class="video-card" onclick="changeVideo('video1.mp4')">
-      <img src="Thumbnail/video1.jpg" alt="Thumbnail 1" class="thumbnail">
+  <!-- Recommendations Section -->
+  <aside class="recommendations">
+    <h2>Recommended Videos</h2>
+    <div class="video-card" onclick="changeVideo('./video/video1.mp4')">
+      <img src="./Thumbnail/video1.jpg" alt="Thumbnail for Learn Node video" class="thumbnail">
       <h4>Learn Node</h4>
     </div>
-    <div class="video-card" onclick="changeVideo('video2.mp4')">
-      <img src="Thumbnail/video2.jpg" alt="Thumbnail 2" class="thumbnail">
+    <div class="video-card" onclick="changeVideo('./video/video2.mp4')">
+      <img src="./Thumbnail/video2.jpg" alt="Thumbnail for Learn MongoDB video" class="thumbnail">
       <h4>Learn MongoDB</h4>
     </div>
-    <div class="video-card" onclick="changeVideo('video3.mp4')">
-      <img src="Thumbnail/video3.jpg" alt="Thumbnail 3" class="thumbnail">
+    <div class="video-card" onclick="changeVideo('./video/video3.mp4')">
+      <img src="./Thumbnail/video3.jpg" alt="Thumbnail for React Mastery video" class="thumbnail">
       <h4>React Mastery</h4>
     </div>
-  </div>
-  
+  </aside>
 
-  <!-- Comment Section -->
-  <div class="comments">
+  <!-- Comments Section -->
+  <section class="comments">
     <h3>Live Comments</h3>
     <ul id="commentList"></ul>
-    <input type="text" id="commentInput" placeholder="Add a comment">
+    <label for="commentInput">Add your comment:</label>
+    <input type="text" id="commentInput" placeholder="Type your comment here">
     <button onclick="addComment()">Send</button>
-  </div>
+  </section>
 
-  <script src="script.js"></script>
+  <!-- JavaScript -->
+  <script>
+    // Function to open video page with the selected video
+    function openVideo(videoSrc) {
+      localStorage.setItem("currentVideo", videoSrc);
+      window.location.href = "video.html";
+    }
+
+    // On the video.html page, load the selected video
+    document.addEventListener("DOMContentLoaded", () => {
+      const video = document.getElementById("mainVideo");
+      const currentVideo = localStorage.getItem("currentVideo");
+
+      if (video && currentVideo) {
+        video.src = currentVideo; // Load directly from localStorage
+        video.play(); // Autoplay the video
+      }
+    });
+
+    // Change video when a recommendation is clicked
+    function changeVideo(newVideo) {
+      const video = document.getElementById("mainVideo");
+      if (video) {
+        video.src = newVideo;
+        video.play();
+        localStorage.setItem("currentVideo", newVideo); // Update the current video
+      }
+    }
+
+    // Add a live comment
+    function addComment() {
+      const commentInput = document.getElementById("commentInput");
+      const commentList = document.getElementById("commentList");
+
+      if (commentInput.value.trim() !== "") {
+        const li = document.createElement("li");
+        const now = new Date();
+        li.textContent = `[${now.getHours()}:${now.getMinutes()}] ${commentInput.value}`;
+        commentList.appendChild(li);
+
+        commentInput.value = "";
+        commentList.scrollTop = commentList.scrollHeight; // Scroll to the latest comment
+      }
+    }
+  </script>
 </body>
 </html>
