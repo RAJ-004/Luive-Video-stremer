@@ -1,9 +1,3 @@
-@media (max-width: 600px) {
-  .video-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* General Reset */
 * {
   margin: 0;
@@ -11,21 +5,14 @@
   box-sizing: border-box;
 }
 
-:root {
-  --background-color: #181818;
-  --accent-color: #9147FF;
-  --text-color: #fff;
-  --card-color: #333;
-}
-
 body {
   font-family: Arial, sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: #181818;
+  color: #fff;
 }
 
 header {
-  background-color: var(--accent-color);
+  background-color: #9147FF;
   padding: 1rem;
   text-align: center;
 }
@@ -42,7 +29,7 @@ h1 {
 }
 
 .video-card {
-  background-color: var(--card-color);
+  background-color: #333;
   padding: 1rem;
   text-align: center;
   cursor: pointer;
@@ -50,11 +37,9 @@ h1 {
 }
 
 .thumbnail {
-  width: 100%;
+  background-color: #9147FF;
   height: 150px;
-  object-fit: cover;
   border-radius: 10px;
-  margin-bottom: 10px;
 }
 
 .video-player {
@@ -65,13 +50,11 @@ h1 {
 
 video {
   width: 70%;
-  max-width: 100%;
   border-radius: 10px;
 }
 
 .recommendations {
   display: flex;
-  flex-wrap: wrap;
   gap: 1rem;
   margin: 1rem;
 }
@@ -81,7 +64,6 @@ video {
   padding: 1rem;
   background-color: #222;
   border-radius: 10px;
-  line-height: 1.5;
 }
 
 #commentInput {
@@ -91,26 +73,20 @@ video {
   margin-right: 0.5rem;
 }
 
-#commentInput:focus {
-  outline: 2px solid var(--accent-color);
-  outline-offset: 2px;
-}
-
 button {
-  background-color: var(--accent-color);
+  background-color: #9147FF;
   color: white;
   padding: 0.5rem;
   border: none;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #772ce8;
-}
-
-button:focus {
-  outline: 2px solid #fff;
-  outline-offset: 2px;
+.thumbnail {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .user-info {
