@@ -6,13 +6,8 @@ if (!isLoggedIn || isLoggedIn !== "true") {
 
 // Function to open video page with the selected video
 function openVideo(videoSrc) {
-HEAD
     localStorage.setItem("currentVideo", videoSrc);
     window.location.href = "video.html";
-
-  localStorage.setItem("currentVideo", videoSrc);
-  window.location.href = "./video.html";
- a165bce0d12c385d03702ce97086d912f42fe279
 }
 
 // On the video.html page, load the selected video
@@ -20,20 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const video = document.getElementById("mainVideo");
     const currentVideo = localStorage.getItem("currentVideo");
 
- HEAD
     if (video && currentVideo) {
         video.src = currentVideo; // Load directly from localStorage
         video.play(); // Autoplay the video
     }
-
-  if (video && currentVideo) {
-    video.src = currentVideo; // Load directly from localStorage
-    video.play(); // Autoplay the video
-  }  else if (video) {
-    video.src = ""; // Optional: Set to a default or empty source
-    console.warn("No video selected or found.");
-  }
- a165bce0d12c385d03702ce97086d912f42fe279
 });
 
 // Change video when a recommendation is clicked
