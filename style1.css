@@ -1,3 +1,9 @@
+@media (max-width: 600px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* General Reset */
 * {
   margin: 0;
@@ -87,4 +93,40 @@ button {
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 10px;
+}
+
+.user-info {
+  position: relative;
+  cursor: pointer;
+}
+
+.user-info span {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #ffffff;
+  color: #000;
+  border-radius: 4px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.dropdown.hidden {
+  display: none;
+}
+
+.dropdown a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #000;
+}
+
+.dropdown a:hover {
+  background-color: #f0f0f0;
 }

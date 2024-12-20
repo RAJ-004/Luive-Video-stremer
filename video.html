@@ -8,7 +8,13 @@
 </head>
 <body>
   <header>
-    <h1>Video Player</h1>
+    <h1>Video Streamer</h1>
+    <div class="user-info">
+      <span id="userName" onclick="toggleDropdown()">Welcome, <span id="user"></span> ▼</span>
+      <div id="dropdown" class="dropdown hidden">
+        <a href="#" onclick="logout()">Logout</a>
+      </div>
+    </div>
   </header>
 
   <!-- Video Player -->
@@ -22,15 +28,15 @@
   <!-- Recommendations -->
   <div class="recommendations">
     <div class="video-card" onclick="changeVideo('video1.mp4')">
-      <img src="Thumbnail/video1.jpg" alt="Thumbnail 1" class="thumbnail">
+      <img src="./Thumbnail/video1.jpg" alt="Thumbnail 1" class="thumbnail">
       <h4>Learn Node</h4>
     </div>
     <div class="video-card" onclick="changeVideo('video2.mp4')">
-      <img src="Thumbnail/video2.jpg" alt="Thumbnail 2" class="thumbnail">
+      <img src="./Thumbnail/video2.jpg" alt="Thumbnail 2" class="thumbnail">
       <h4>Learn MongoDB</h4>
     </div>
     <div class="video-card" onclick="changeVideo('video3.mp4')">
-      <img src="Thumbnail/video3.jpg" alt="Thumbnail 3" class="thumbnail">
+      <img src="./Thumbnail/video3.jpg" alt="Thumbnail 3" class="thumbnail">
       <h4>React Mastery</h4>
     </div>
   </div>
